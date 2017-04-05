@@ -111,7 +111,7 @@ class MostCovetedCanines::CLI
     end
   end
 
-  def demand_dog(first_in_range)
+  def demand_dog
     input = nil
     puts "Enter the rank of the dog breed you'd like to explore further:"
     input = gets.strip
