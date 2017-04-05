@@ -23,27 +23,27 @@ class MostCovetedCanines::CLI
       when 1
         reveal_range(1)
         demand_dog
-        pick_puppy
+        pick_new_puppy
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 11
         reveal_range(11)
         demand_dog
-        pick_puppy
+        pick_new_puppy
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 21
         reveal_range(21)
         demand_dog
-        pick_puppy
+        pick_new_puppy
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 31
         reveal_range(31)
         demand_dog
-        pick_puppy
+        pick_new_puppy
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when (41)
         reveal_range(41)
         demand_dog
-        pick_puppy
+        pick_new_puppy
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       end
     else
@@ -142,7 +142,7 @@ class MostCovetedCanines::CLI
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
 
-  def pick_another_puppy
+  def pick_new_puppy
     input = ""
     puts "Would you like to learn about another dog breed?"
     puts "Type yes to begin your new dog discovery or type no to quit the program."
@@ -154,7 +154,7 @@ class MostCovetedCanines::CLI
       puts "I hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
     else
       puts "The input you entered is invalid. Please try again."
-      pick_another_puppy
+      pick_new_puppy
     end
   end
 end
