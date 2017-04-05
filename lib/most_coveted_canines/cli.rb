@@ -148,7 +148,7 @@ class MostCovetedCanines::CLI
     elsif input == "no"
       puts "Hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
     else
-      puts "The input you entered is invalid. Please try again."
+      puts "The input you entered is invalid. Please type yes or no."
       pick_new_puppy
     end
   end
