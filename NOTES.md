@@ -20,3 +20,8 @@ Planning My Interface:
 --display data about the dog (scraped attributes)
 --if the user wants to view another dog breed, execute loop again to select rank and then an individual dog
 --if the user does not want to view another dog breed, exit program
+
+What is a dog?
+A dog is an instance of the MostCovetedCanines::Dog class.
+A dog instance has the following attributes represented as instance variables:
+@breed, @url, @group, @personality, @year_recognized, @rank, @nutrition, @grooming, @exercise, @fun_fact and @appearance
