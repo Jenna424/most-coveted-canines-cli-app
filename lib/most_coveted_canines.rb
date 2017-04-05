@@ -1,5 +1,2 @@
-require "most_coveted_canines/version"
-
-module MostCovetedCanines
-  # Your code goes here...
-end
+require_relative './most_coveted_canines/version'
+require_relative './most_coveted_canines/cli'
