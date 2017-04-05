@@ -19,9 +19,28 @@ class MostCovetedCanines::CLI
     # calling the #to_i method on a string range will return the first number in that range as an integer
     # for example, "1-10".to_i will return 1 and "11-20".to_i will return 11
     if range_starts_at == 1 || range_starts_at == 11 || range_starts_at == 21 || range_starts_at == 31 || range_starts_at == 41
-      reveal_range(range_starts_at)
-      puts "call a method that asks user to pick a dog and then displays info about that particular dog"
-      puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      case range_starts_at
+      when 1
+        reveal_range(1)
+        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      when 11
+        reveal_range(11)
+        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      when 21
+        reveal_range(21)
+        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      when 31
+        reveal_range(31)
+        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      when (41)
+        reveal_range(41)
+        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
+      end
     else
       puts "The input you entered is invalid. Please try again."
       unleash_dogs
