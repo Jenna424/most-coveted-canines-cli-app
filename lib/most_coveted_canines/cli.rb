@@ -143,11 +143,10 @@ class MostCovetedCanines::CLI
   end
 
   def pick_new_puppy
-    input = ""
+    input = nil
     puts "Would you like to learn about another dog breed?"
     puts "Type yes to emBARK on your new dog discovery or type no to quit the program."
     input = gets.strip.downcase
-
     if input == "yes"
       unleash_dogs
     elsif input == "no"
