@@ -22,23 +22,23 @@ class MostCovetedCanines::CLI
       case range_starts_at
       when 1
         reveal_range(1)
-        demand_dog(1)
+        demand_dog
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 11
         reveal_range(11)
-        demand_dog(11)
+        demand_dog
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 21
         reveal_range(21)
-        demand_dog(21)
+        demand_dog
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 31
         reveal_range(31)
-        demand_dog(31)
+        demand_dog
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when (41)
         reveal_range(41)
-        demand_dog(41)
+        demand_dog
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       end
     else
@@ -116,10 +116,24 @@ class MostCovetedCanines::CLI
     puts "Enter the rank of the dog breed you'd like to explore further:"
     input = gets.strip
     if input.to_i.between?(1, 50)
-      puts "call method that displays the individual dog's data"
+      showcase_dog
     else
       puts "The input you entered is invalid. Please try again."
-      demand_dog(first_in_range)
+      demand_dog
     end
+  end
+
+  def showcase_dog
+    puts "*~*~*~*~*~* placeholder for breed attribute of dog instance *~*~*~*~*~*"
+    puts "Group: scraped attribute"
+    puts "Personality: scraped attribute"
+    puts "Year Recognized by AKC: scraped attribute"
+    puts "Rank: scraped attribute"
+    puts "Nutrition: scraped attribute"
+    puts "Grooming: scraped attribute"
+    puts "Exercise: scraped attribute"
+    puts "Fun Fact: scraped attribute"
+    puts "Appearance: scraped attribute"
+    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
 end
