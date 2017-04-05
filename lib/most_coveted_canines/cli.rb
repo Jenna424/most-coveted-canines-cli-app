@@ -19,7 +19,7 @@ class MostCovetedCanines::CLI
     # calling the #to_i method on a string range will return the first number in that range as an integer
     # for example, "1-10".to_i will return 1 and "11-20".to_i will return 11
     if range_starts_at == 1 || range_starts_at == 11 || range_starts_at == 21 || range_starts_at == 31 || range_starts_at == 41
-      puts "call a method that displays all dogs in the requested range by their rank number and breed"
+      reveal_range(range_starts_at)
       puts "call a method that asks user to pick a dog and then displays info about that particular dog"
       puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
     else
@@ -28,4 +28,20 @@ class MostCovetedCanines::CLI
     end
   end
 
+  def reveal_range(first_in_range)
+    # ultimately, this method should first get array of dog instances at specific array indices
+    # then iterate through that array of dog instances and for each dog instance, print rank number followed by breed attribute
+    # There are 10 numbers in each range, so the first number in the range + 9 is the last number in the range
+    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
+    puts "1. Retrievers (Labrador)"
+    puts "2. German Shepherd Dogs"
+    puts "3. Retrievers (Golden)"
+    puts "4. Bulldogs"
+    puts "5. Beagles"
+    puts "6. French Bulldogs"
+    puts "7. Poodles"
+    puts "8. Rottweilers"
+    puts "9. Yorkshire Terriers"
+    puts "10. Boxers"
+  end
 end
