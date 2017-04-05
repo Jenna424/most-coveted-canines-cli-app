@@ -22,23 +22,23 @@ class MostCovetedCanines::CLI
       case range_starts_at
       when 1
         reveal_range(1)
-        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        demand_dog(1)
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 11
         reveal_range(11)
-        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        demand_dog(11)
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 21
         reveal_range(21)
-        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        demand_dog(21)
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when 31
         reveal_range(31)
-        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        demand_dog(31)
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       when (41)
         reveal_range(41)
-        puts "call a method that asks user to pick a dog and then displays info about that particular dog"
+        demand_dog(41)
         puts "call a method that asks user if they want to learn about another dog and if so, executes this method again"
       end
     else
