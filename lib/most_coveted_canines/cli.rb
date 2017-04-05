@@ -110,4 +110,16 @@ class MostCovetedCanines::CLI
       puts "50. Soft Coated Wheaten Terriers"
     end
   end
+
+  def demand_dog(first_in_range)
+    input = nil
+    puts "Enter the rank of the dog breed you'd like to explore further:"
+    input = gets.strip
+    if input.to_i.between?(1, 50)
+      puts "call method that displays the individual dog's data"
+    else
+      puts "The input you entered is invalid. Please try again."
+      demand_dog(first_in_range)
+    end
+  end
 end
