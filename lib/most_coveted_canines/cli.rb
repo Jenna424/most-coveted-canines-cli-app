@@ -142,18 +142,19 @@ class MostCovetedCanines::CLI
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
 
-  def pick_puppy
+  def pick_another_puppy
     input = ""
     puts "Would you like to learn about another dog breed?"
     puts "Type yes to begin your new dog discovery or type no to quit the program."
     input = gets.strip.downcase
+
     if input == "yes"
       unleash_dogs
     elsif input == "no"
       puts "I hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
     else
       puts "The input you entered is invalid. Please try again."
-      pick_puppy
+      pick_another_puppy
     end
   end
 end
