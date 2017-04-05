@@ -48,19 +48,33 @@ class MostCovetedCanines::CLI
   end
 
   def reveal_range(first_in_range)
+    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
     # ultimately, this method should first get array of dog instances at specific array indices
     # then iterate through that array of dog instances and for each dog instance, print rank number followed by breed attribute
     # There are 10 numbers in each range, so the first number in the range + 9 is the last number in the range
-    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
-    puts "1. Retrievers (Labrador)"
-    puts "2. German Shepherd Dogs"
-    puts "3. Retrievers (Golden)"
-    puts "4. Bulldogs"
-    puts "5. Beagles"
-    puts "6. French Bulldogs"
-    puts "7. Poodles"
-    puts "8. Rottweilers"
-    puts "9. Yorkshire Terriers"
-    puts "10. Boxers"
+    case first_in_range
+    when 1
+      puts "1. Retrievers (Labrador)"
+      puts "2. German Shepherd Dogs"
+      puts "3. Retrievers (Golden)"
+      puts "4. Bulldogs"
+      puts "5. Beagles"
+      puts "6. French Bulldogs"
+      puts "7. Poodles"
+      puts "8. Rottweilers"
+      puts "9. Yorkshire Terriers"
+      puts "10. Boxers"
+    when 11
+      puts "11. Pointers (German Shorthaired)"
+      puts "12. Siberian Huskies"
+      puts "13. Dachshunds"
+      puts "14. Great Danes"
+      puts "15. Doberman Pinschers"
+      puts "16. Australian Shepherds"
+      puts "17. Miniature Schnauzers"
+      puts "18. Pembroke Welsh Corgis"
+      puts "19. Cavalier King Charles Spaniels"
+      puts "20. Shih Tzu"
+    end
   end
 end
