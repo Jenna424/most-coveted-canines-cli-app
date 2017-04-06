@@ -1,14 +1,16 @@
 class MostCovetedCanines::Scraper
-  # When a dog instance is instantiated by Dog class, the instance will be initialized with a hash of keys and values
-  # The keys of each hash will be @breed and @url attributes (represented as :breed and :url symbols in hash)
-  # The corresponding values will be the scraped data
-  # Eventually, I will need to use the value of the @url property to scrape an individual dog's profile page
-  def self.scrape_ranking_list
-    # The return value of this method will be an array of hashes. A dog instance will be initialized with a hash element from array
+  #scrape the main full ranking list AKC page to obtain @breed and @url attributes that each dog instance is initialized with
+  def self.scrape_ranking_list #the return value of this class method will be an array of hashes
     array_of_hashes = []
-    # the #open method returns the HTML content of the web page specified in the argument
-    # the Nokogiri::HTML method converts this into a giant HTML nested node string
-    # the local variable node_set will store this giant nested node HTML string of ranking list web page
-    node_set = Nokogiri::HTML(open(http://www.akc.org/content/news/articles/most-popular-dog-breeds-full-ranking-list/))
+    node_set = Nokogiri::HTML(open("http://www.akc.org/content/news/articles/most-popular-dog-breeds-full-ranking-list/?button"))
+    # #open method returns the HTML content of AKC web page specified in argument
+    # Nokogiri::HTML method converts this HTML content into giant nested node HTML string
+    # node_set variable will store this giant nested node HTML string
+    # below, call the #search method on node_set with the following css selector:
+    # go inside <div class="content" to grab the <a> tags, where each <a> tag will contain an individual dog's profile link
+    # the #search method returns an array-like collection of Nokogiri::XML 'dog' elements
+    # dogs ranked from numbers 1-50 are represented by 'array' indices 0 through 49
+    # save this array-like collection of 50 Nokogiri XML 'dog' elements to canine_xml_elements variable
+    canine_xml_elements = node_set.search("div.content a")[0..49]
   end
 end
