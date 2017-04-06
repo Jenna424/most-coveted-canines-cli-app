@@ -56,7 +56,7 @@ class MostCovetedCanines::CLI
     case first_in_range
     when 1
       puts "1. #{@all_dogs.first.breed}"
-      puts "2. German Shepherd Dogs"
+      puts "2. #{@all_dogs[1].breed}"
       puts "3. Retrievers (Golden)"
       puts "4. Bulldogs"
       puts "5. Beagles"
