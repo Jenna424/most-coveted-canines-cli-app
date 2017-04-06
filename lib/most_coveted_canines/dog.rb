@@ -1,4 +1,7 @@
 class MostCovetedCanines::Dog
+  attr_accessor :breed, :url, :group, :personality, :year_recognized, :rank, :grooming, :exercise, :fun_fact, :appearance
+  @@all = []
+  
   def self.all
     # returns array of all dog instances
     dog_1 = MostCovetedCanines::Dog.new
