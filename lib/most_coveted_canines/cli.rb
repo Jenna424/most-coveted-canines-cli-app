@@ -132,7 +132,6 @@ class MostCovetedCanines::CLI
     puts "Personality: #{the_dog.personality}"
     puts "Year Recognized by AKC: #{the_dog.year_recognized}"
     puts "Rank: #{the_dog.rank}"
-    puts "Nutrition: scraped attribute"
     puts "Grooming: #{the_dog.grooming}"
     puts "Exercise: #{the_dog.exercise}"
     puts "Fun Fact: #{the_dog.fun_fact}"
