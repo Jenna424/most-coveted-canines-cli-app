@@ -12,5 +12,12 @@ class MostCovetedCanines::Scraper
     # dogs ranked from numbers 1-50 are represented by 'array' indices 0 through 49
     # save this array-like collection of 50 Nokogiri XML 'dog' elements to canine_xml_elements variable
     canine_xml_elements = node_set.search("div.content a")[0..49]
+    canine_xml_elements.each do |canine|
+      canine_hash = {}
+      canine_hash[:breed] = # scrape the breed
+      canine_hash[:url] = # scrape the url
+      array_of_hashes << canine_hash
+    end
+
   end
 end
