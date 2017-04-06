@@ -14,10 +14,11 @@ class MostCovetedCanines::Scraper
     canine_xml_elements = node_set.search("div.content a")[0..49]
     canine_xml_elements.each do |canine|
       canine_hash = {}
-      canine_hash[:breed] = # scrape the breed
-      canine_hash[:url] = # scrape the url
+      canine_hash[:breed] = canine.text
+      canine_hash[:url] = canine.attr("href")
       array_of_hashes << canine_hash
     end
-
+    array_of_hashes
+    binding.pry
   end
 end
