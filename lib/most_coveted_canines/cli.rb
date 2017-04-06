@@ -48,13 +48,14 @@ class MostCovetedCanines::CLI
   end
 
   def reveal_range(first_in_range)
+    @all_dogs = MostCovetedCanines::Dog.all
     puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
     # ultimately, this method should first get array of dog instances at specific array indices
     # then iterate through that array of dog instances and for each dog instance, print rank number followed by breed attribute
     # There are 10 numbers in each range, so the first number in the range + 9 is the last number in the range
     case first_in_range
     when 1
-      puts "1. Retrievers (Labrador)"
+      puts "1. #{@all_dogs.first.breed}"
       puts "2. German Shepherd Dogs"
       puts "3. Retrievers (Golden)"
       puts "4. Bulldogs"
