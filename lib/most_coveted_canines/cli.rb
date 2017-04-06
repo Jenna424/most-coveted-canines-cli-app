@@ -116,25 +116,27 @@ class MostCovetedCanines::CLI
     input = nil
     puts "Enter the rank of the dog breed you'd like to explore further:"
     input = gets.strip
+
     if input.to_i.between?(1, 50)
-      showcase_dog
+      the_dog = @all_dogs[input.to_i - 1]
+      showcase_dog(the_dog)
     else
       puts "The input you entered is invalid. Please try again."
       demand_dog
     end
   end
 
-  def showcase_dog
-    puts "*~*~*~*~*~* placeholder for breed attribute of dog instance *~*~*~*~*~*"
-    puts "Group: scraped attribute"
-    puts "Personality: scraped attribute"
-    puts "Year Recognized by AKC: scraped attribute"
-    puts "Rank: scraped attribute"
+  def showcase_dog(the_dog)
+    puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*"
+    puts "Group: #{the_dog.group}"
+    puts "Personality: #{the_dog.personality}"
+    puts "Year Recognized by AKC: #{the_dog.year_recognized}"
+    puts "Rank: #{the_dog.rank}"
     puts "Nutrition: scraped attribute"
-    puts "Grooming: scraped attribute"
-    puts "Exercise: scraped attribute"
-    puts "Fun Fact: scraped attribute"
-    puts "Appearance: scraped attribute"
+    puts "Grooming: #{the_dog.grooming}"
+    puts "Exercise: #{the_dog.exercise}"
+    puts "Fun Fact: #{the_dog.fun_fact}"
+    puts "Appearance: #{the_dog.appearance}"
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
 
