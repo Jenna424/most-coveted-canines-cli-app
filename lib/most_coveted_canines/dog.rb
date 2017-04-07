@@ -15,4 +15,12 @@ class MostCovetedCanines::Dog
   def self.create_canine_collection(array_of_hashes) # argument is return value of Scraper#scrape_ranking_list
     array_of_hashes.each {|canine_hash| self.new(canine_hash)}
   end
+
+  def save
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
 end
