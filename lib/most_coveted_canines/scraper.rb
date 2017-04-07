@@ -32,6 +32,7 @@ class MostCovetedCanines::Scraper
     puppy_properties[:exercise] = puppy_profile.search("div.care-item")[2].search("p").text.gsub("Read More", "")
     puppy_properties[:fun_fact] = puppy_profile.search("#didYouKnow p").text
     puppy_properties[:appearance] = puppy_profile.search("div.tip-container p").text
+    puppy_properties
     binding.pry
   end
 
