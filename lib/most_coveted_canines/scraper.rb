@@ -24,14 +24,15 @@ class MostCovetedCanines::Scraper
   def self.scrape_puppy_profile(puppy_url)
     puppy_profile = Nokogiri::HTML(open(puppy_url))
     puppy_properties = {}
-    puppy_properties[:group] = # scrape group
-    puppy_properties[:personality] = # scrape personality
+    puppy_properties[:group] = puppy_profile.search("span.title").text
+    puppy_properties[:personality] = puppy_profile.search("span.adj").text
     puppy_properties[:year_recognized] = # scrape year_recognized
     puppy_properties[:rank] = # scrape rank
     puppy_properties[:grooming] = # scrape grooming
     puppy_properties[:exercise] = # scrape exercise
     puppy_properties[:fun_fact] = # scrape fun_fact
     puppy_properties[:appearance] = # scrape appearance
+    binding.pry
   end
 
 end
