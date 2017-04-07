@@ -20,4 +20,8 @@ class MostCovetedCanines::Scraper
     end
     array_of_hashes
   end
+
+  def self.scrape_puppy_profile(puppy_url)
+  end
+
 end
