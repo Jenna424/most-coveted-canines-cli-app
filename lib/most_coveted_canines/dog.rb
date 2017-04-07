@@ -25,7 +25,7 @@ class MostCovetedCanines::Dog
     @@all
   end
 
-  def self.assign_additional_attributes
+  def self.assign_additional_attributes(array_of_canine_hashes)
     @@new_puppies.each do |puppy|
       puppy_properties = MostCovetedCanines::Scraper.scrape_puppy_profile(puppy.url)
       puppy_properties.each do |k,v|
