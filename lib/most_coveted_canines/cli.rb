@@ -5,6 +5,11 @@ class MostCovetedCanines::CLI
     unleash_dogs
   end
 
+  def make_puppies
+    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
+    MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
+  end
+
   def welcome_user
     puts ""
     puts "*~*~*~*~*~* The 50 Most Popular Dog Breeds in the United States *~*~*~*~*~*"
