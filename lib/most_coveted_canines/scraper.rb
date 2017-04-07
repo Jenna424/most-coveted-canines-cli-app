@@ -28,8 +28,8 @@ class MostCovetedCanines::Scraper
     puppy_properties[:personality] = puppy_profile.search("span.adj").text
     puppy_properties[:year_recognized] = puppy_profile.search("span.bigyear").text
     puppy_properties[:rank] = puppy_profile.search("div.bigrank").text.gsub(/\D/, "")
-    puppy_properties[:grooming] = # scrape grooming
-    puppy_properties[:exercise] = # scrape exercise
+    puppy_properties[:grooming] = puppy_profile.search("div.care-item")[1].search("p").text.gsub("Read More", "")
+    puppy_properties[:exercise] = puppy_profile.search("div.care-item")[2].search("p").text.gsub("Read More", "")
     puppy_properties[:fun_fact] = # scrape fun_fact
     puppy_properties[:appearance] = # scrape appearance
     binding.pry
