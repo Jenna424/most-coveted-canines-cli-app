@@ -19,6 +19,5 @@ class MostCovetedCanines::Scraper
       array_of_hashes << canine_hash
     end
     array_of_hashes
-    binding.pry
   end
 end
