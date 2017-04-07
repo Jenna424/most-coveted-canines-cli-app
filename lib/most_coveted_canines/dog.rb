@@ -1,15 +1,15 @@
 class MostCovetedCanines::Dog
   attr_accessor :breed, :url, :group, :personality, :year_recognized, :rank, :grooming, :exercise, :fun_fact, :appearance
   @@all = []
-  @@puppies = []
+  @@new_puppies = []
 
   def self.puppies #class reader
-    @@puppies
+    @@new_puppies
   end
 
   def initialize(canine_hash)
     canine_hash.each {|k,v| self.send("#{k}=", v)}
-    @@puppies << self
+    @@new_puppies << self
   end
 
   def self.create_canine_collection(array_of_hashes) # argument is return value of Scraper#scrape_ranking_list
