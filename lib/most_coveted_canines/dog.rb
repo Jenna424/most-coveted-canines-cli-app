@@ -23,4 +23,14 @@ class MostCovetedCanines::Dog
   def self.all
     @@all
   end
+
+  def self.assign_additional_attributes
+    @@new_puppies.each do |puppy|
+      puppy_properties = MostCovetedCanines::Scraper.scrape_puppy_profile(puppy.url)
+      puppy_properties.each do |k,v|
+        puppy.send("#{k}=", v)
+      end
+      puppy.save
+    end
+  end
 end
