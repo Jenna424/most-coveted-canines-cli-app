@@ -1,13 +1,11 @@
 class MostCovetedCanines::CLI
 
   def call
+    # writing the code I wish I had:
+    # I wish I had a method called #make_puppies that will return to me the array of newly instantiated puppy instances with @breed and @url attributes
+    make_puppies
     welcome_user
     unleash_dogs
-  end
-
-  def make_puppies
-    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
-    MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
   end
 
   def welcome_user
