@@ -94,12 +94,20 @@ class MostCovetedCanines::CLI
   # If the user wants to view dogs #11-20, I want to start from 11.
   # If the user wants to view dogs #21-30, I want to start from 21. And so on and so forth.
   # So I want to start from the first number in the range that the user has requested.
+# I want to refactor my #demand_dog instance method called on instance of CLI class
+# Some questions to ask myself:
+
+# In my #reveal_range(first_in_range) method defined above, the user will view 10 dogs by rank number and breed
+# (after having selected a specific ranking tier)
+# In my #demand_dog instance method below, the user will be able to type in the rank number of the specific dog instance they wish to explore further
+# Some questions to ask myself:
+# What happens if the user types in a number that does not correspond to a dog instance, i.e., the number is not in the range of 1-50 (really indices 0-49)
+# I need to refactor my #demand_dog method
+# I'm going to use conditional logic. My first if clause will return true if the dog instance the user indicates by rank number does, in fact, exist!
+# But currently I have no method that will find a dog instance by its rank number...so let me create one!
+# I have to create this method in the Dog class, NOT in the CLI class!
 
   def demand_dog
-    input = nil
-    puts "Enter the rank of the dog breed you'd like to explore further:"
-    input = gets.strip
-
     if input.to_i.between?(1, 50)
       the_dog = @all_dogs[input.to_i - 1]
       showcase_dog(the_dog)
@@ -109,7 +117,7 @@ class MostCovetedCanines::CLI
     end
   end
 
-  def showcase_dog(the_dog)
+  def showcase_dog(string_rank)
     puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*"
     puts "Group: #{the_dog.group}"
     puts "Personality: #{the_dog.personality}"
