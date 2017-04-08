@@ -4,6 +4,10 @@ class MostCovetedCanines::CLI
     # writing the code I wish I had:
     # I wish I had a method called #make_puppies that will return to me the array of newly instantiated puppy instances with @breed and @url attributes
     make_puppies
+    # writing the code I wish I had:
+    # I wish I had a method called #add_puppy_properties that will add attributes to the 'puppies', aka dog instances instantiated with only @breed and @url
+    # and these grown, 'mature' dog instances that now contain ALL of their attributes will be stored in @@all array in Dog class:
+    add_puppy_properties
     welcome_user
     unleash_dogs
   end
