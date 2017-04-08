@@ -26,7 +26,8 @@ class MostCovetedCanines::Dog
   end
 
   def self.assign_additional_attributes(array_of_canine_hashes)
-    @@new_puppies.each do |puppy|
+     puppies_born = self.create_canine_collection(array_of_canine_hashes)
+     puppies_born.each do |puppy|
       puppy_properties = MostCovetedCanines::Scraper.scrape_puppy_profile(puppy.url)
       puppy_properties.each do |k,v|
         puppy.send("#{k}=", v)
