@@ -107,15 +107,27 @@ class MostCovetedCanines::CLI
 # But currently I have no method that will find a dog instance by its rank number...so let me create one!
 # I have to create this method in the Dog class, NOT in the CLI class!
 
-  def demand_dog
-    if input.to_i.between?(1, 50)
-      the_dog = @all_dogs[input.to_i - 1]
-      showcase_dog(the_dog)
-    else
-      puts "The input you entered is invalid. Please try again."
-      demand_dog
-    end
-  end
+def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER number which is the first number within the range. For example, if the user wants to view dogs ranked 1-10, the first_in_range variable = 1
+  input = nil
+  puts "Enter the rank of the dog breed you'd like to explore further:"
+  input = gets.strip # self reminder: here, input is a STRING number rank, such as "1" or "50"
+
+  # first, see if the input number a user has entered even corresponds to a dog instance!
+  if MostCovetedCanines::Dog.find_by_rank(input) # that is, if a dog instance is found with that @rank and does NOT evaluate to nil, execute the following logic:
+    # rather than just seeing if the dog instance exists in that collection of all 50 dog instances,
+    # I'm going to be more specific and check to make sure the dog instance is included in the range of ranks the user requested earlier
+    if input.to_i.between?(first_in_range, first_in_range+9)
+      # I want to display that dog's data, so I need to call #showcase_dog(input) method
+      showcase_dog(input) # I'm going to make the argument of showcase_dog the string rank number the user entered
+    # what happens if the string rank number (converted to an integer) that the user entered is GREATER THAN > the last number in the requested range? (but still within the range of 1-50)?
+    # for example, if the user selected the range of dogs ranked 1-10 and the user mistakenly entered "24", converted to the integer 24,
+    # the dog instance the user requested has a lower popularity ranking. The smaller the number, the HIGHER the popularity ranking. For example, the labrador retriever at rank 1 is MOST popular.
+    # I want to inform the user that the dog breed they requested did NOT make the cut for this ranking tier since it's less popular, But
+    # since the dog exists in the top 50, I will still display data about the dog, i.e. 'showcase' the dog.
+  elsif input.to_i > (first_in_range+9) #first_in_range+9 is the highest number in the range
+    puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier."
+    puts "Nevertheless, here's some useful information about the breed:"
+    showcase_dog(input)
 
   def showcase_dog(rank)
     # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
