@@ -76,12 +76,24 @@ class MostCovetedCanines::CLI
 # I'm now going to replace my hard-coded string data in the #reveal_range method with my actual dog instances the Dog class created
 # First, I'm going to remove my case statement in #reveal_range(first_in_range) that contains the hard-coded strings
   def reveal_range(first_in_range)
-    @all_dogs = MostCovetedCanines::Dog.all
     puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
-    # ultimately, this method should first get array of dog instances at specific array indices
-    # then iterate through that array of dog instances and for each dog instance, print rank number followed by breed attribute
-    # There are 10 numbers in each range, so the first number in the range + 9 is the last number in the range
+    dogs_requested = MostCovetedCanines::Dog.all[first_in_range-1..first_in_range+8]
+    dogs_requested.each.with_index(first_in_range) {|dog, i| puts "#{i}. #{dog.breed}"}
   end
+  # Explanation of #reveal_range(first_in_range)
+  # Above, I need to store the dogs from the first number in the range through the last number in the range
+  # The index number is always 1 less than the rank number specified. For example, if the user wants to view dogs
+  # ranked from numbers 1-10, the top-ranked dog #1 will be at index 0.
+  #dogs 1-10 are really dogs at indices 0-9
+  # So if the user's rank_starts_from input is 1, then the last array index in this range (9) will really be the user's rank_starts_from input + 8
+  # Now that I've saved the array of dog instances that the user wants to view to the variable dogs_requested,
+  # I can iterate through the dogs_requested array using #each.with_index(the number to start from), to print the dog's
+  # rank number followed by the dog instance's breed attribute
+  # What number do I want to start from in #each.with_index() ?
+  # If the user wants to view dogs #1-10, I want to start from 1.
+  # If the user wants to view dogs #11-20, I want to start from 11.
+  # If the user wants to view dogs #21-30, I want to start from 21. And so on and so forth.
+  # So I want to start from the first number in the range that the user has requested.
 
   def demand_dog
     input = nil
