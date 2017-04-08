@@ -20,9 +20,15 @@ class MostCovetedCanines::CLI
     MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
     # the above class method called on Dog class will take in an argument that is the return value of #scrape_ranking_list
     # It will return an array @@new_puppies of newly instantiated puppies (dog instances) that each have only 2 attributes: breed and url
+  end # The last line of #make_puppies is the method call to #create_canine_collection(array_of_hashes) # Therefore, the return value of #make_puppies is my array of newly instantiated dog instances that each have @breed and @url attributes
+
+  def add_puppy_properties
+    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
+    # I have a method defined in my Dog class called #assign_additional_attributes, which assigns the additional properties to the dog instances
+    # and then pushes those dog instances into @@all array of all 'mature' dog instances with all of their attributes set
+    MostCovetedCanines::Dog.assign_additional_attributes(array_of_hashes)
+    # What is array_of_hashes? The return value of #scrape_ranking_list method!
   end
-# The last line of #make_puppies is the method call to #create_canine_collection(array_of_hashes)
-# Therefore, the return value of #make_puppies is my array of newly instantiated dog instances that each have @breed and @url attributes
 
 
   def welcome_user
