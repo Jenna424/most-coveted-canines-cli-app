@@ -8,6 +8,19 @@ class MostCovetedCanines::CLI
     unleash_dogs
   end
 
+  #define the #make_puppies method below:
+  def make_puppies
+    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
+    # the above class method will return an array of hashes where each hash corresponds to a particular dog instance
+    # and contains that dog instance's @breed and @url attribute key/value pairs
+    MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
+    # the above class method called on Dog class will take in an argument that is the return value of #scrape_ranking_list
+    # It will return an array @@new_puppies of newly instantiated puppies (dog instances) that each have only 2 attributes: breed and url
+  end
+# The last line of #make_puppies is the method call to #create_canine_collection(array_of_hashes)
+# Therefore, the return value of #make_puppies is my array of newly instantiated dog instances that each have @breed and @url attributes
+
+
   def welcome_user
     puts ""
     puts "*~*~*~*~*~* The 50 Most Popular Dog Breeds in the United States *~*~*~*~*~*"
