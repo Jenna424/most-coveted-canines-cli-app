@@ -117,7 +117,10 @@ class MostCovetedCanines::CLI
     end
   end
 
-  def showcase_dog(string_rank)
+  def showcase_dog(rank)
+    # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
+    
+    the_dog =
     puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*"
     puts "Group: #{the_dog.group}"
     puts "Personality: #{the_dog.personality}"
