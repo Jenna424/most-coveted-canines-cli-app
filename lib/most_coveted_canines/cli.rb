@@ -128,6 +128,13 @@ def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER nu
     puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier."
     puts "Nevertheless, here's some useful information about the breed:"
     showcase_dog(input)
+  else
+    # If the user enters a number that is lower than first_in_range, I will notify the user that the dog breed actually ranks higher in popularity,
+    # but I will still display the dog breed's data anyway:
+    puts "Hot dog! The dog breed you requested ranks higher in popularity!"
+    puts "Here's some information about this impressive breed:"
+    showcase_dog(input)
+  end
 
   def showcase_dog(rank)
     # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
