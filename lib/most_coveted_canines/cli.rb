@@ -141,34 +141,33 @@ def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER nu
   end
 end
 
-  def showcase_dog(rank)
-    # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
-    the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
-    puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*"
-    puts "Group: #{the_dog.group}"
-    puts "Personality: #{the_dog.personality}"
-    puts "Year Recognized by AKC: #{the_dog.year_recognized}"
-    puts "Rank: #{the_dog.rank}"
-    puts "Grooming: #{the_dog.grooming}"
-    puts "Exercise: #{the_dog.exercise}"
-    puts "Fun Fact: #{the_dog.fun_fact}"
-    puts "Appearance: #{the_dog.appearance}"
-    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
-  end
+def showcase_dog(rank)
+  # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
+  the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
+  puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*"
+  puts "Group: #{the_dog.group}"
+  puts "Personality: #{the_dog.personality}"
+  puts "Year Recognized by AKC: #{the_dog.year_recognized}"
+  puts "Rank: #{the_dog.rank}"
+  puts "Grooming: #{the_dog.grooming}"
+  puts "Exercise: #{the_dog.exercise}"
+  puts "Fun Fact: #{the_dog.fun_fact}"
+  puts "Appearance: #{the_dog.appearance}"
+  puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+end
 
-  def pick_new_puppy
-    input = ""
-    puts "Would you like to learn about another dog breed?"
-    puts "Type yes to emBARK on your new dog discovery or type no to quit the program."
-    input = gets.strip.downcase
+def pick_new_puppy
+  input = ""
+  puts "Would you like to learn about another dog breed?"
+  puts "Type yes to emBARK on your new dog discovery or type no to quit the program."
+  input = gets.strip.downcase
 
-    if input == "yes"
-      unleash_dogs
-    elsif input == "no"
-      puts "Hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
-    else
-      puts "The input you entered is invalid. Please type yes or no."
-      pick_new_puppy
-    end
+  if input == "yes"
+    unleash_dogs
+  elsif input == "no"
+    puts "Hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
+  else
+    puts "The input you entered is invalid. Please type yes or no."
+    pick_new_puppy
   end
 end
