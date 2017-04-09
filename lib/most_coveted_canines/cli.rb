@@ -124,17 +124,22 @@ def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER nu
     # the dog instance the user requested has a lower popularity ranking. The smaller the number, the HIGHER the popularity ranking. For example, the labrador retriever at rank 1 is MOST popular.
     # I want to inform the user that the dog breed they requested did NOT make the cut for this ranking tier since it's less popular, But
     # since the dog exists in the top 50, I will still display data about the dog, i.e. 'showcase' the dog.
-  elsif input.to_i > (first_in_range+9) #first_in_range+9 is the highest number in the range
-    puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier."
-    puts "Nevertheless, here's some useful information about the breed:"
-    showcase_dog(input)
-  else
-    # If the user enters a number that is lower than first_in_range, I will notify the user that the dog breed actually ranks higher in popularity,
-    # but I will still display the dog breed's data anyway:
-    puts "Hot dog! The dog breed you requested ranks higher in popularity!"
-    puts "Here's some information about this impressive breed:"
-    showcase_dog(input)
+    elsif input.to_i > (first_in_range+9) #first_in_range+9 is the highest number in the range
+      puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier."
+      puts "Nevertheless, here's some useful information about the breed:"
+      showcase_dog(input)
+    else
+      # If the user enters a number that is lower than first_in_range, I will notify the user that the dog breed actually ranks higher in popularity,
+      # but I will still display the dog breed's data anyway:
+      puts "Hot dog! The dog breed you requested ranks higher in popularity!"
+      puts "Here's some information about this impressive breed:"
+      showcase_dog(input)
+    end
+  else #  If the dog instance does not exist, print error message
+    puts "The input you entered is invalid. Please try again."
+    demand_dog(first_in_range)
   end
+end
 
   def showcase_dog(rank)
     # I'm going to call the class finder #find_by_rank(rank) method to detect that dog instance by its @rank attribute
