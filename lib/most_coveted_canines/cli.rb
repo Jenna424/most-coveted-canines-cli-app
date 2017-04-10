@@ -49,7 +49,7 @@ class MostCovetedCanines::CLI
       demand_dog(range_starts_at)
       pick_new_puppy
     else
-      puts "The input you entered is invalid. Please try again."
+      puts "The input you entered is invalid. Please try again.".colorize(:red)
       unleash_dogs
     end
   end
