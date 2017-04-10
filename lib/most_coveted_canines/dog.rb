@@ -1,12 +1,16 @@
 class MostCovetedCanines::Dog
   attr_accessor :breed, :url, :group, :personality, :year_recognized, :rank, :grooming, :exercise, :fun_fact, :appearance
   @@all = []
-  @@new_puppies = []
 
-  def self.puppies #class reader
-    @@new_puppies
-  end
-
+# I am going to refactor my Dog class a bit.
+# Currently, a dog instance is initialized with a hash, where the 2 keys of :breed and :url (@breed and @url attributes) correspond to values scraped from the AKC's full ranking list main page
+# I use mass assignment to call #breed=() and #url=() instance setter methods on the dog instance that is instantiated to set its @breed and @url attributes
+# I then push (shovel) the new dog instance with its @breed and @url attributes assigned into the @@new_puppies array
+# @@new_puppies will contain all of the newly instantiated dog instances that each have only TWO attributes of breed and url
+# Later, I iterate through @@new_puppies in #assign_additional_attributes(array_of_canine_hashes) class method to add more properties to the dog instances
+# Instead of creating two separate arrays @@new_puppies and @@all (the latter contains fully 'mature' dogs with ALL attributes assigned)
+# I'm going to eliminate @@new_puppies. I don't want to have 2 separate arrays to store dog instances
+# I'm going to start by removing @@new_puppies set to empty array on line 4 and the class reader #puppies called on Dog class to retrieve class variable @@new_puppies!
   def initialize(canine_hash)
     canine_hash.each {|k,v| self.send("#{k}=", v)}
     @@new_puppies << self
