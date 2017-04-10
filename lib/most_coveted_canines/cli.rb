@@ -126,6 +126,7 @@ class MostCovetedCanines::CLI
     #{"Appearance:".colorize(:yellow)} #{the_dog.appearance}
     DOC
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*".colorize(:green)
+    puts ""
   end
 
   def pick_new_puppy
@@ -139,7 +140,7 @@ class MostCovetedCanines::CLI
     elsif input == "no"
       puts "Hope you enjoyed learning about the 50 most popular dog breeds! Goodbye for now!"
     else
-      puts "The input you entered is invalid. Please type yes or no."
+      puts "The input you entered is invalid. Please type yes or no.".colorize(:red)
       pick_new_puppy
     end
   end
