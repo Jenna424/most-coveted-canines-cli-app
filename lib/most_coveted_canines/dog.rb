@@ -13,8 +13,8 @@ class MostCovetedCanines::Dog
 # I'm going to start by removing @@new_puppies set to empty array on line 4 and the class reader #puppies called on Dog class to retrieve class variable @@new_puppies!
   def initialize(canine_hash)
     canine_hash.each {|k,v| self.send("#{k}=", v)}
-    @@new_puppies << self
   end
+
   # Instead of iterating through the array_of_hashes, where each hash will represent an individual dog instance's data for @breed and @url attributes, and instantiating a dog instance with that hash and then returning the @@new_puppies array at the end of the method,
   # I want to simply create a new array to return right then and there where my array elements become the dog instances themselves with their attributes of breed and url assigned
   # Instead of #each, Im going to use the #collect method (which is synonymous with #map) to return this new modified array:
