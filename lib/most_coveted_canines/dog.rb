@@ -15,11 +15,18 @@ class MostCovetedCanines::Dog
     canine_hash.each {|k,v| self.send("#{k}=", v)}
     @@new_puppies << self
   end
+  # Instead of iterating through the array_of_hashes, where each hash will represent an individual dog instance's data for @breed and @url attributes, and instantiating a dog instance with that hash and then returning the @@new_puppies array at the end of the method,
+  # I want to simply create a new array to return right then and there where my array elements become the dog instances themselves with their attributes of breed and url assigned
+  # Instead of #each, Im going to use the #collect method (which is synonymous with #map) to return this new modified array:
 
   def self.create_canine_collection(array_of_hashes) # argument is return value of Scraper#scrape_ranking_list
-    array_of_hashes.each {|canine_hash| self.new(canine_hash)}
-    @@new_puppies
+    array_of_hashes.collect {|canine_hash| self.new(canine_hash)}
   end
+
+  # Now, the return value of #create_canine_collection(array_of_hashes) will automatically be an array of dog instances where each dog instance element has a @breed and @url attribute
+  # When #new is called, #initialize is automatically called (hook)
+  # And in initialize method, the dog instance had its @breed and @url attributes set through mass assignment. The dog instance was initialized with that canine hash
+  # an example of a canine_hash would be {:breed => "Retrievers (Labrador)", :url => "labrador retriever's profile url web address goes here"}
 
   def save
     @@all << self
