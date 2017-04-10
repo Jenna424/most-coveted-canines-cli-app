@@ -125,7 +125,7 @@ class MostCovetedCanines::CLI
     puts <<-DOC.gsub(/^\s*|$\s*/, "")
     #{"Appearance:".colorize(:yellow)} #{the_dog.appearance}
     DOC
-    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*".colorize(:green)
   end
 
   def pick_new_puppy
