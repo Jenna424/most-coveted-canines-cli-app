@@ -45,7 +45,9 @@ class MostCovetedCanines::CLI
     # calling the #to_i method on a string range will return the first number in that range as an integer
     # for example, "1-10".to_i will return 1 and "11-20".to_i will return 11
     if range_starts_at == 1 || range_starts_at == 11 || range_starts_at == 21 || range_starts_at == 31 || range_starts_at == 41
-      
+      reveal_range(range_starts_at)
+      demand_dog(range_starts_at)
+      pick_new_puppy
     else
       puts "The input you entered is invalid. Please try again."
       unleash_dogs
