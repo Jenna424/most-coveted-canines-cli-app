@@ -111,6 +111,7 @@ class MostCovetedCanines::CLI
     # That worked, but I'm going to try yellow rather than red (because red is very bright) and I need to add a space before the value for group attribute
     # That worked! Let's change the rest of the attributes to yellow and be sure to add a space before the values! I'll use << shovel operator instead of + to join the strings
     # Looks good! Now I have to fix the spacing for a dog's appearance data
+    # I want to remove 0 or more spaces at the start of a line or 0 or more spaces at the end of a line
     the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
     puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*".colorize(:green)
     puts "Group:".colorize(:yellow) << " #{the_dog.group}"
@@ -120,7 +121,10 @@ class MostCovetedCanines::CLI
     puts "Grooming:".colorize(:yellow) << " #{the_dog.grooming}"
     puts "Exercise:".colorize(:yellow) << " #{the_dog.exercise}"
     puts "Fun Fact:".colorize(:yellow) << " #{the_dog.fun_fact}"
-    puts "Appearance:".colorize(:yellow) << " #{the_dog.appearance}"
+    # here doc. I'm going to use #gsub with RegEx. I replace 0 or more spaces at the start of the line or 0 or more spaces at the end of the line with an empty string ""
+    puts <<-DOC.gsub(/^\s*|$\s*/, "")
+    #{"Appearance:".colorize(:yellow)} #{the_dog.appearance}
+    DOC
     puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
   end
 
