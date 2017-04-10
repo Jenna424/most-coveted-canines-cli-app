@@ -90,7 +90,7 @@ class MostCovetedCanines::CLI
         showcase_dog(input)
       end
     else #  If the dog instance does not exist, print error message
-      puts "The input you entered is invalid. Please try again."
+      puts "The input you entered is invalid. Please try again.".colorize(:red)
       demand_dog(first_in_range)
     end
   end
