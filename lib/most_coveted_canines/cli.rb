@@ -53,13 +53,13 @@ class MostCovetedCanines::CLI
       unleash_dogs
     end
   end
-# In my Dog class, my @@all array stores all dog instances (that have all attributes assigned)
-# I'm now going to replace my hard-coded string data in the #reveal_range method with my actual dog instances the Dog class created
-# First, I'm going to remove my case statement in #reveal_range(first_in_range) that contains the hard-coded strings
+
   def reveal_range(first_in_range)
     puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
     dogs_requested = MostCovetedCanines::Dog.all[first_in_range-1..first_in_range+8]
     dogs_requested.each.with_index(first_in_range) {|dog, i| puts "#{i}. #{dog.breed}"}
+    puts ""
+    # I want to add a space between listing the dogs in that particular ranking tier and printing the command to ask the user to enter a specific rank number
   end
 
   def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER number which is the first number within the range. For example, if the user wants to view dogs ranked 1-10, the first_in_range variable = 1
