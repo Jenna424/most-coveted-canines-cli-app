@@ -1,35 +1,21 @@
 class MostCovetedCanines::CLI
 
   def call
-    # writing the code I wish I had:
-    # I wish I had a method called #make_puppies that will return to me the array of newly instantiated puppy instances with @breed and @url attributes
     make_puppies
-    # writing the code I wish I had:
-    # I wish I had a method called #add_puppy_properties that will add attributes to the 'puppies', aka dog instances instantiated with only @breed and @url
-    # and these grown, 'mature' dog instances that now contain ALL of their attributes will be stored in @@all array in Dog class:
     add_puppy_properties
     welcome_user
     unleash_dogs
   end
 
-  #define the #make_puppies method below:
   def make_puppies
     array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
-    # the above class method will return an array of hashes where each hash corresponds to a particular dog instance
-    # and contains that dog instance's @breed and @url attribute key/value pairs
     MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
-    # the above class method called on Dog class will take in an argument that is the return value of #scrape_ranking_list
-    # It will return an array @@new_puppies of newly instantiated puppies (dog instances) that each have only 2 attributes: breed and url
-  end # The last line of #make_puppies is the method call to #create_canine_collection(array_of_hashes) # Therefore, the return value of #make_puppies is my array of newly instantiated dog instances that each have @breed and @url attributes
+  end
 
   def add_puppy_properties
     array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
-    # I have a method defined in my Dog class called #assign_additional_attributes, which assigns the additional properties to the dog instances
-    # and then pushes those dog instances into @@all array of all 'mature' dog instances with all of their attributes set
     MostCovetedCanines::Dog.assign_additional_attributes(array_of_hashes)
-    # What is array_of_hashes? The return value of #scrape_ranking_list method!
   end
-
 
   def welcome_user
     puts ""
@@ -37,13 +23,12 @@ class MostCovetedCanines::CLI
     puts ""
   end
 
-  def unleash_dogs # start main program loop
+  def unleash_dogs
     range_starts_at = ""
     puts "Enter one of the following ranges to view dogs within that ranking tier:"
     puts "1-10, 11-20, 21-30, 31-40, 41-50"
     range_starts_at = gets.strip.to_i
-    # calling the #to_i method on a string range will return the first number in that range as an integer
-    # for example, "1-10".to_i will return 1 and "11-20".to_i will return 11
+    
     if range_starts_at == 1 || range_starts_at == 11 || range_starts_at == 21 || range_starts_at == 31 || range_starts_at == 41
       reveal_range(range_starts_at)
       demand_dog(range_starts_at)
