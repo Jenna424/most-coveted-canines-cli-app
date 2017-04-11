@@ -28,7 +28,7 @@ class MostCovetedCanines::CLI
     puts "Enter one of the following ranges to view dogs within that ranking tier:"
     puts "1-10, 11-20, 21-30, 31-40, 41-50"
     range_starts_at = gets.strip.to_i
-    
+
     if range_starts_at == 1 || range_starts_at == 11 || range_starts_at == 21 || range_starts_at == 31 || range_starts_at == 41
       reveal_range(range_starts_at)
       demand_dog(range_starts_at)
@@ -40,41 +40,30 @@ class MostCovetedCanines::CLI
   end
 
   def reveal_range(first_in_range)
-    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:".colorize(:green)
+    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range+9}:".colorize(:green)
     dogs_requested = MostCovetedCanines::Dog.all[first_in_range-1..first_in_range+8]
     dogs_requested.each.with_index(first_in_range) {|dog, i| puts "#{i}. #{dog.breed}"}
     puts ""
-    # I want to add a space between listing the dogs in that particular ranking tier and printing the command to ask the user to enter a specific rank number
   end
 
-  def demand_dog(first_in_range)# demand dog takes in an argument of an INTEGER number which is the first number within the range. For example, if the user wants to view dogs ranked 1-10, the first_in_range variable = 1
-    input = nil
+  def demand_dog(first_in_range)
+    input = ""
     puts "Enter the rank of the dog breed you'd like to explore further:"
-    input = gets.strip # self reminder: here, input is a STRING number rank, such as "1" or "50"
-    # first, see if the input number a user has entered even corresponds to a dog instance!
-    if MostCovetedCanines::Dog.find_by_rank(input) # that is, if a dog instance is found with that @rank and does NOT evaluate to nil, execute the following logic:
-    # rather than just seeing if the dog instance exists in that collection of all 50 dog instances,
-    # I'm going to be more specific and check to make sure the dog instance is included in the range of ranks the user requested earlier
+    input = gets.strip
+
+    if MostCovetedCanines::Dog.find_by_rank(input)
       if input.to_i.between?(first_in_range, first_in_range+9)
-      # I want to display that dog's data, so I need to call #showcase_dog(input) method
-        showcase_dog(input) # I'm going to make the argument of showcase_dog the string rank number the user entered
-    # what happens if the string rank number (converted to an integer) that the user entered is GREATER THAN > the last number in the requested range? (but still within the range of 1-50)?
-    # for example, if the user selected the range of dogs ranked 1-10 and the user mistakenly entered "24", converted to the integer 24,
-    # the dog instance the user requested has a lower popularity ranking. The smaller the number, the HIGHER the popularity ranking. For example, the labrador retriever at rank 1 is MOST popular.
-    # I want to inform the user that the dog breed they requested did NOT make the cut for this ranking tier since it's less popular, But
-    # since the dog exists in the top 50, I will still display data about the dog, i.e. 'showcase' the dog.
-      elsif input.to_i > (first_in_range+9) #first_in_range+9 is the highest number in the range
-        puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier.".colorize(:red)
-        puts "Nevertheless, here's some useful information about the breed:".colorize(:red)
+        showcase_dog(input)
+      elsif input.to_i > (first_in_range+9)
+        puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier.".colorize(:blue)
+        puts "Nevertheless, here's some useful information about the breed:".colorize(:blue)
         showcase_dog(input)
       else
-      # If the user enters a number that is lower than first_in_range, I will notify the user that the dog breed actually ranks higher in popularity,
-      # but I will still display the dog breed's data anyway:
-        puts "Hot dog! The dog breed you requested ranks higher in popularity!".colorize(:red)
-        puts "Here's some information about this impressive breed:".colorize(:red)
+        puts "Hot dog! The dog breed that you requested ranks higher in popularity!".colorize(:blue)
+        puts "Here's some information about this impressive breed:".colorize(:blue)
         showcase_dog(input)
       end
-    else #  If the dog instance does not exist, print error message
+    else
       puts "The input you entered is invalid. Please try again.".colorize(:red)
       demand_dog(first_in_range)
     end
