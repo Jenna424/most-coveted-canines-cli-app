@@ -33,7 +33,7 @@ class MostCovetedCanines::CLI
 
   def welcome_user
     puts ""
-    puts "*~*~*~*~*~* The 50 Most Popular Dog Breeds in the United States *~*~*~*~*~*"
+    puts "*~*~*~*~*~* The 50 Most Popular Dog Breeds in the United States *~*~*~*~*~*".colorize(:green)
     puts ""
   end
 
@@ -55,7 +55,7 @@ class MostCovetedCanines::CLI
   end
 
   def reveal_range(first_in_range)
-    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:"
+    puts "Dogs Ranked from Numbers #{first_in_range} through #{first_in_range + 9}:".colorize(:green)
     dogs_requested = MostCovetedCanines::Dog.all[first_in_range-1..first_in_range+8]
     dogs_requested.each.with_index(first_in_range) {|dog, i| puts "#{i}. #{dog.breed}"}
     puts ""
