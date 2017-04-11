@@ -8,7 +8,7 @@ class MostCovetedCanines::Dog
   end
 
   def self.create_canine_collection
-    .collect {|canine_hash| self.new(canine_hash)}
+    MostCovetedCanines::Scraper.scrape_ranking_list.collect {|canine_hash| self.new(canine_hash)}
   end
 
   def save
