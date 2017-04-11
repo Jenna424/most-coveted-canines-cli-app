@@ -7,7 +7,7 @@ class MostCovetedCanines::Dog
     canine_hash.each {|k,v| self.send("#{k}=", v)}
   end
 
-  def self.create_canine_collection(array_of_hashes)
+  def self.create_canine_collection(array_of_canine_hashes)
     array_of_hashes.collect {|canine_hash| self.new(canine_hash)}
   end
 
@@ -19,8 +19,8 @@ class MostCovetedCanines::Dog
     @@all
   end
 
-  def self.assign_additional_attributes(array_of_hashes)
-    puppies_born = self.create_canine_collection(array_of_hashes)
+  def self.assign_additional_attributes(array_of_canine_hashes)
+    puppies_born = self.create_canine_collection(array_of_canine_hashes)
     puppies_born.each do |puppy|
       puppy_properties = MostCovetedCanines::Scraper.scrape_puppy_profile(puppy.url)
       puppy_properties.each do |k,v|
