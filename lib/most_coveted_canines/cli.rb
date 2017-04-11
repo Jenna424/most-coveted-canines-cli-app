@@ -79,7 +79,6 @@ class MostCovetedCanines::CLI
     puts "Grooming:".colorize(:yellow) << " #{the_dog.grooming}"
     puts "Exercise:".colorize(:yellow) << " #{the_dog.exercise}"
     puts "Fun Fact:".colorize(:yellow) << " #{the_dog.fun_fact}"
-    # here doc. I'm going to use #gsub with RegEx. I replace 0 or more spaces at the start of the line or 0 or more spaces at the end of the line with an empty string ""
     puts <<-DOC.gsub(/^\s*|$\s*/, "")
     #{"Appearance:".colorize(:yellow)} #{the_dog.appearance}
     DOC
@@ -102,4 +101,5 @@ class MostCovetedCanines::CLI
       pick_new_puppy
     end
   end
+  
 end
