@@ -8,13 +8,11 @@ class MostCovetedCanines::CLI
   end
 
   def make_puppies
-    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
-    MostCovetedCanines::Dog.create_canine_collection(array_of_hashes)
+    MostCovetedCanines::Dog.create_canine_collection
   end
 
   def add_puppy_properties
-    array_of_hashes = MostCovetedCanines::Scraper.scrape_ranking_list
-    MostCovetedCanines::Dog.assign_additional_attributes(array_of_hashes)
+    MostCovetedCanines::Dog.assign_additional_attributes
   end
 
   def welcome_user
@@ -101,5 +99,5 @@ class MostCovetedCanines::CLI
       pick_new_puppy
     end
   end
-  
+
 end
