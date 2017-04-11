@@ -70,22 +70,6 @@ class MostCovetedCanines::CLI
   end
 
   def showcase_dog(rank)
-    # The spacing of the value for the @appearance attribute of a dog instance needs to be fixed
-    # The @appearance attribute value was scraped from a paragraph element on an individual dog's profile page
-    # This value is basically just a giant string. I'll need to fix the spacing and
-    # to do so, I think I'll use a here doc
-    # Also, I want to create some sort of visual separation between the different categories of data, the different attributes
-    # To do so, I think I'll change the text colors
-    # Let me start by first requiring colorize in my environment file, lib/most_coveted_canines.rb
-    # I want to see if that worked...I'm going to make line 108 (printing the dog's breed) green
-    # I'll call the #colorize method on the string with an argument of the color I want (:green) as a symbol
-    # I forgot to add colorize as a dependency in my gemspec file ...let's do that now!
-    # That worked! Now the dog breed is printed in green text!
-    # I'm going to test out the color red for the different attributes, but the values for each attribute will remain as white text
-    # That worked, but I'm going to try yellow rather than red (because red is very bright) and I need to add a space before the value for group attribute
-    # That worked! Let's change the rest of the attributes to yellow and be sure to add a space before the values! I'll use << shovel operator instead of + to join the strings
-    # Looks good! Now I have to fix the spacing for a dog's appearance data
-    # I want to remove 0 or more spaces at the start of a line or 0 or more spaces at the end of a line
     the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
     puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*".colorize(:green)
     puts "Group:".colorize(:yellow) << " #{the_dog.group}"
@@ -99,7 +83,7 @@ class MostCovetedCanines::CLI
     puts <<-DOC.gsub(/^\s*|$\s*/, "")
     #{"Appearance:".colorize(:yellow)} #{the_dog.appearance}
     DOC
-    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*".colorize(:green)
+    puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*".colorize(:green)
     puts ""
   end
 
