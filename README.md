@@ -9,6 +9,7 @@ $ gem install most_coveted_canines
 ## Usage
 
 After installing the gem, enter the command below and follow the subsequent prompts:
+
 $ most-coveted-canines
 
 ## Development
