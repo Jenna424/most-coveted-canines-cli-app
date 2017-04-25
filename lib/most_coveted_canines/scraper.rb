@@ -13,18 +13,18 @@ class MostCovetedCanines::Scraper
     array_of_hashes
   end
 
-  def self.scrape_puppy_profile(puppy_url)
-    puppy_profile = Nokogiri::HTML(open(puppy_url))
-    puppy_properties = {}
-    puppy_properties[:group] = puppy_profile.search("span.title").text
-    puppy_properties[:personality] = puppy_profile.search("span.adj").text
-    puppy_properties[:year_recognized] = puppy_profile.search("span.bigyear").text
-    puppy_properties[:rank] = puppy_profile.search("div.bigrank").text.gsub(/[^\d]/, "")
-    puppy_properties[:grooming] = puppy_profile.search("div.care-item")[1].search("p").text.gsub("Read More", "")
-    puppy_properties[:exercise] = puppy_profile.search("div.care-item")[2].search("p").text.gsub("Read More", "")
-    puppy_properties[:fun_fact] = puppy_profile.search("#didYouKnow p").text
-    puppy_properties[:appearance] = puppy_profile.search("div.tip-container p").text
-    puppy_properties
+  def self.scrape_puppy_profile(puppy)
+    puppy_profile = Nokogiri::HTML(open(puppy.url))
+    #puppy_properties = {}
+    puppy.group = puppy_profile.search("span.title").text
+    puppy.personality = puppy_profile.search("span.adj").text
+    puppy.year_recognized = puppy_profile.search("span.bigyear").text
+    puppy.rank = puppy_profile.search("div.bigrank").text.gsub(/[^\d]/, "")
+    puppy.grooming = puppy_profile.search("div.care-item")[1].search("p").text.gsub("Read More", "")
+    puppy.exercise = puppy_profile.search("div.care-item")[2].search("p").text.gsub("Read More", "")
+    puppy.fun_fact = puppy_profile.search("#didYouKnow p").text
+    puppy.appearance = puppy_profile.search("div.tip-container p").text
+    #puppy_properties
   end
 
 end

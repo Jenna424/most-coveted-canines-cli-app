@@ -2,7 +2,7 @@ class MostCovetedCanines::CLI
 
   def call
     make_puppies
-    add_puppy_properties
+    #add_puppy_properties
     welcome_user
     unleash_dogs
   end
@@ -49,9 +49,12 @@ class MostCovetedCanines::CLI
     puts "Enter the rank of the dog breed you'd like to explore further:"
     input = gets.strip
 
-    if MostCovetedCanines::Dog.find_by_rank(input)
+    if puppy =  MostCovetedCanines::Dog.find(input.to_i - 1)
       if input.to_i.between?(first_in_range, first_in_range+9)
-        showcase_dog(input)
+        #binding.pry
+        #puppy = MostCovetedCanines::Dog.find(input - 1)
+        MostCovetedCanines::Scraper.scrape_puppy_profile(puppy)
+        showcase_dog(puppy)
       elsif input.to_i > (first_in_range+9)
         puts "Unfortunately, the dog breed that you requested did not make the cut for this ranking tier.".colorize(:blue)
         puts "Nevertheless, here's some useful information about the breed:".colorize(:blue)
@@ -67,8 +70,8 @@ class MostCovetedCanines::CLI
     end
   end
 
-  def showcase_dog(rank)
-    the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
+  def showcase_dog(the_dog)
+    #the_dog = MostCovetedCanines::Dog.find_by_rank(rank)
     puts "*~*~*~*~*~* #{the_dog.breed} *~*~*~*~*~*".colorize(:green)
     puts "Group:".colorize(:yellow) << " #{the_dog.group}"
     puts "Personality:".colorize(:yellow) << " #{the_dog.personality}"

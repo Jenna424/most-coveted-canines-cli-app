@@ -5,6 +5,7 @@ class MostCovetedCanines::Dog
 
   def initialize(canine_hash)
     canine_hash.each {|k,v| self.send("#{k}=", v)}
+    save
   end
 
   def self.create_canine_collection
@@ -26,12 +27,11 @@ class MostCovetedCanines::Dog
       puppy_properties.each do |k,v|
         puppy.send("#{k}=", v)
       end
-      puppy.save
     end
   end
 
-  def self.find_by_rank(rank)
-    @@all.detect {|dog| dog.rank == rank}
+  def self.find(index)
+    @@all[index]
   end
 
 end
